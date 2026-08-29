@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Star Health Insurance - Tom K. Varghese Portfolio Script
+   Star Health Insurance - Tom K Varghese Portfolio Script
    Interactive Logic, Plan Matcher, Lightbox & Contact Handlers
    ========================================================================== */
 
@@ -260,4 +260,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ------------------------------------------------------------------------
+     8. Mobile Specific Collapse/Expand for FAQs & Testimonials
+     ------------------------------------------------------------------------ */
+  const faqContainer = document.querySelector('.faq-container');
+  const faqToggleBtn = document.getElementById('faqMobileToggleBtn');
+
+  if (faqContainer && faqToggleBtn) {
+    if (window.innerWidth <= 768) {
+      faqContainer.classList.add('collapsed');
+    }
+
+    faqToggleBtn.addEventListener('click', () => {
+      faqContainer.classList.toggle('collapsed');
+      const isCollapsed = faqContainer.classList.contains('collapsed');
+      const btnSpan = faqToggleBtn.querySelector('span');
+      const btnIcon = faqToggleBtn.querySelector('i');
+
+      if (isCollapsed) {
+        btnSpan.textContent = 'View All FAQs (6)';
+        btnIcon.className = 'fa-solid fa-chevron-down';
+      } else {
+        btnSpan.textContent = 'Show Less FAQs';
+        btnIcon.className = 'fa-solid fa-chevron-up';
+      }
+    });
+  }
+
+  const testimonialsGrid = document.querySelector('.testimonials-grid');
+  const testimonialToggleBtn = document.getElementById('testimonialMobileToggleBtn');
+
+  if (testimonialsGrid && testimonialToggleBtn) {
+    if (window.innerWidth <= 768) {
+      testimonialsGrid.classList.add('collapsed');
+    }
+
+    testimonialToggleBtn.addEventListener('click', () => {
+      testimonialsGrid.classList.toggle('collapsed');
+      const isCollapsed = testimonialsGrid.classList.contains('collapsed');
+      const btnSpan = testimonialToggleBtn.querySelector('span');
+      const btnIcon = testimonialToggleBtn.querySelector('i');
+
+      if (isCollapsed) {
+        btnSpan.textContent = 'View All Feedback';
+        btnIcon.className = 'fa-solid fa-chevron-down';
+      } else {
+        btnSpan.textContent = 'Show Less Feedback';
+        btnIcon.className = 'fa-solid fa-chevron-up';
+      }
+    });
+  }
+
 });
+

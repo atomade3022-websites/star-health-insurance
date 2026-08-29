@@ -1,7 +1,7 @@
 /* ==========================================================================
    Star Health Insurance - Agent Portfolio & Agency Website
    Theme: Professional Crisp Blue & Pure White with Subtle Gold Accents
-   Agent: Tom K. Varghese - Senior Advisor & CEO Gold Club Member
+   Agent: Tom K Varghese - CEO Platinum Club Member
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -31,11 +31,11 @@
   /* Focus point: 'top center', 'center center', etc. */
 
   /* 3. About Advisor Profile Image (profile 1.png / profile 2.png / image 5.png) */
-  --about-img-height: 500px;
+  --about-img-height: 520px;
   /* Height of advisor portrait card */
-  --about-img-object-fit: contain;
+  --about-img-object-fit: cover;
   /* Options: 'contain' (full uncropped photo), 'cover' */
-  --about-img-object-position: center center;
+  --about-img-object-position: center top;
 
   /* ==========================================================================
      4. FEATURED ACHIEVEMENT IMAGE MANUAL CONTROLS (profile 2.png)
@@ -53,7 +53,7 @@
   --gallery-img-height: 240px;
   /* Height of gallery photo cards */
   --gallery-img-object-fit: cover;
-  --gallery-img-object-position: center center;
+  --gallery-img-object-position: center top;
 
   /* 6. Footer Brand Logo (logo.jpg) */
   --footer-logo-card-height: 54px;
@@ -188,15 +188,17 @@ img {
 }
 
 .top-bar-badge {
-  background: linear-gradient(90deg, var(--star-gold) 0%, var(--star-gold-dark) 100%);
-  color: #000;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #94a3b8 70%, #f1f5f9 100%);
+  color: #0b1f3a;
   font-weight: 800;
-  padding: 3px 12px;
+  padding: 4px 14px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(245, 166, 35, 0.4);
+  letter-spacing: 0.6px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 1.5px 0 #ffffff, inset 0 -1.5px 0 #64748b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .top-bar-actions {
@@ -579,15 +581,15 @@ img {
   position: absolute;
   top: 24px;
   right: -20px;
-  background: var(--pure-white);
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
   border-radius: var(--radius-md);
   padding: 14px 20px;
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 16px 36px rgba(11, 31, 58, 0.16), inset 0 1px 0 #ffffff;
   display: flex;
   align-items: center;
   gap: 14px;
   z-index: 2;
-  border: 1px solid var(--border-light);
+  border: 1.5px solid #cbd5e1;
   animation: float 4s ease-in-out infinite;
 }
 
@@ -604,15 +606,17 @@ img {
 }
 
 .floating-badge-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #fff3dc, #ffe2b0);
-  color: var(--star-gold-dark);
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  color: #0b1f3a;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.5), inset 0 1.5px 0 #ffffff, inset 0 -2px 0 #475569;
+  border: 1px solid #e2e8f0;
 }
 
 .floating-badge-val {
@@ -675,7 +679,7 @@ img {
 }
 
 /* ==========================================================================
-   About Tom K. Varghese Section
+   About Tom K Varghese Section
    ========================================================================== */
 .section-padding {
   padding: 90px 0;
@@ -724,11 +728,11 @@ img {
 
 .about-image-card {
   position: relative;
-  background: var(--pure-white);
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-light);
-  padding: 12px;
+  padding: 0;
   overflow: hidden;
   transition: var(--transition-smooth);
 }
@@ -739,7 +743,7 @@ img {
 }
 
 .about-main-img {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   height: var(--about-img-height);
   width: 100%;
   object-fit: var(--about-img-object-fit);
@@ -1827,29 +1831,76 @@ img {
 }
 
 /* ==========================================================================
-   Responsive Breakpoints
+   Comprehensive Mobile, Tablet, iOS & Android Responsive Enhancements
    ========================================================================== */
+
+/* Global Touch & Safe Area Controls */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Touch Input & Select Optimization */
+input, select, textarea {
+  font-size: 16px !important; /* Prevents auto-zoom in iOS Safari */
+}
+
+/* Tablet & Medium Display (Max-width: 1024px) */
 @media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
 
   .hero-grid,
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-content,
+  .about-content {
+    text-align: left;
   }
 
   .featured-achievement-banner {
     flex-direction: column;
-    padding: 24px;
-    gap: 24px;
+    padding: 28px 24px;
+    gap: 28px;
   }
 
   .achievement-poster-box {
     width: 100%;
-    height: 320px;
+    height: clamp(280px, 45vh, 380px);
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.1rem, 4.5vw, 2.6rem);
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .stats-grid {
@@ -1859,67 +1910,264 @@ img {
 
   .stat-item {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 20px;
+  }
+
+  .stat-item:nth-last-child(-n+2) {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .calc-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .claim-steps-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
+/* Tablet Portrait & Mobile Large (Max-width: 768px) */
 @media (max-width: 768px) {
+  .section-padding {
+    padding: 50px 0;
+  }
+
   .top-bar-info {
+    font-size: 0.76rem;
+    gap: 8px 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .top-bar .container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .top-bar-actions {
+    margin-top: 4px;
     font-size: 0.78rem;
     gap: 12px;
   }
 
+  .nav-header {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .brand-name {
+    font-size: 1.12rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.68rem;
+  }
+
+  .brand-logo-card {
+    height: 44px;
+    padding: 4px 8px;
+  }
+
+  .brand-logo-img {
+    height: 32px;
+  }
+
+  .nav-cta {
+    display: none !important;
+  }
+
   .mobile-menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: rgba(18, 63, 115, 0.08);
+    font-size: 1.3rem;
   }
 
   .nav-menu {
     position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    background: var(--pure-white);
+    top: 64px;
+    right: -100%;
+    left: auto;
+    width: min(320px, 85vw);
+    height: calc(100vh - 64px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
-    padding: 30px;
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition-smooth);
-    gap: 20px;
+    padding: 30px 24px;
+    box-shadow: -10px 0 30px rgba(11, 31, 58, 0.15);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 16px;
+    align-items: stretch;
+    overflow-y: auto;
+    border-left: 1px solid var(--border-light);
   }
 
   .nav-menu.active {
-    left: 0;
+    right: 0;
+  }
+
+  .nav-link {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 1.05rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    background: rgba(18, 63, 115, 0.08);
+    color: var(--primary-blue);
+  }
+
+  .hero-section {
+    padding-top: 40px;
+    padding-bottom: 50px;
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.95rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
   }
 
   .hero-bullets {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Mobile-Specific Image Ratios and Focal Point Adjustments */
+  .hero-image-card {
+    height: auto;
   }
 
   .hero-main-img {
-    height: 380px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center 48% !important;
+  }
+
+  .about-image-card {
+    height: auto;
+  }
+
+  .about-main-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center 15% !important;
+  }
+
+  .achievement-poster-box {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 380px;
+  }
+
+  .achievement-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25% !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 50% !important;
+  }
+
+  /* Fine-tuned focal points for individual mobile gallery images */
+  .gallery-card[data-img*="image 1"] .gallery-img { object-position: center 35% !important; }
+  .gallery-card[data-img*="image 2"] .gallery-img { object-position: center 55% !important; }
+  .gallery-card[data-img*="image 3"] .gallery-img { object-position: center 50% !important; }
+  .gallery-card[data-img*="image 4"] .gallery-img { object-position: center 45% !important; }
+  .gallery-card[data-img*="image 6"] .gallery-img { object-position: center 35% !important; }
+  .gallery-card[data-img*="image 7"] .gallery-img { object-position: center 40% !important; }
+  .gallery-card[data-img*="image 8"] .gallery-img { object-position: center center !important; }
+  .gallery-card[data-img*="image 10"] .gallery-img { object-position: center 50% !important; }
+
+  /* Mobile-only collapse for Testimonials & FAQs */
+  .testimonials-grid.collapsed .testimonial-card:nth-child(n+3) {
+    display: none;
+  }
+
+  .testimonial-mobile-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .faq-container.collapsed .faq-item:nth-child(n+4) {
+    display: none;
+  }
+
+  .faq-mobile-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
   }
 
   .floating-stat-badge {
     position: relative;
     top: 0;
     right: 0;
-    margin-top: 14px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .plans-filter-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .filter-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
   }
 
   .claim-steps-grid {
@@ -1928,9 +2176,127 @@ img {
 
   .form-row {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .floating-contact-bar {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(16px, env(safe-area-inset-right));
+  }
+
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Smartphone & Compact Screen (Max-width: 576px) */
+@media (max-width: 576px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-card {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+
+  .gallery-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, transparent 30%, rgba(10, 25, 47, 0.92) 100%);
+  }
+
+  .gallery-title {
+    transform: translateY(0);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 16px;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  .featured-achievement-banner {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .achievement-poster-box {
+    aspect-ratio: 4 / 5;
+    height: auto;
+    max-height: 480px;
+  }
+
+  .achievement-metric-pill {
+    padding: 12px 14px;
+  }
+
+  .metric-val {
+    font-size: 1.25rem;
+  }
+
+  .calc-controls {
+    padding: 20px 16px;
+  }
+
+  .calc-result-val {
+    font-size: 1.35rem;
+  }
+
+  .lightbox-content {
+    max-width: 95vw;
+    padding: 16px;
+  }
+
+  .lightbox-img {
+    max-height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .testimonial-mobile-toggle-wrap,
+  .faq-mobile-toggle-wrap {
+    display: none !important;
   }
 }
