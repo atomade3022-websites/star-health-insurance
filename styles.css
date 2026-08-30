@@ -1828,9 +1828,39 @@ img {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: minmax(340px, 2.2fr) repeat(4, 1fr);
   gap: 36px;
   margin-bottom: 50px;
+}
+
+.footer-brand .brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.footer-brand .brand-logo-card {
+  height: 54px;
+  width: auto;
+  min-width: 110px;
+  padding: 6px 14px;
+  background: var(--pure-white);
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.footer-brand .brand-logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-brand p {
@@ -2010,8 +2040,8 @@ input, select, textarea {
   }
 
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: minmax(320px, 1.8fr) repeat(2, 1fr);
+    gap: 32px;
   }
 }
 
