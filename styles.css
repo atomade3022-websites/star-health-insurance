@@ -31,11 +31,11 @@
   /* Focus point: 'top center', 'center center', etc. */
 
   /* 3. About Advisor Profile Image (profile 1.png / profile 2.png / image 5.png) */
-  --about-img-height: 520px;
+  --about-img-height: auto;
   /* Height of advisor portrait card */
-  --about-img-object-fit: cover;
+  --about-img-object-fit: contain;
   /* Options: 'contain' (full uncropped photo), 'cover' */
-  --about-img-object-position: center top;
+  --about-img-object-position: center center;
 
   /* ==========================================================================
      4. FEATURED ACHIEVEMENT IMAGE MANUAL CONTROLS (profile 2.png)
@@ -748,7 +748,7 @@ img {
 
 .about-image-card {
   position: relative;
-  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+  background: transparent;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-light);
@@ -764,11 +764,11 @@ img {
 
 .about-main-img {
   border-radius: var(--radius-lg);
-  height: var(--about-img-height);
   width: 100%;
+  height: auto;
+  max-height: 580px;
   object-fit: var(--about-img-object-fit);
   object-position: var(--about-img-object-position);
-  background-color: #FFFFFF;
   display: block;
 }
 
@@ -2227,9 +2227,9 @@ input, select, textarea {
   .about-main-img {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center 15% !important;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center center !important;
   }
 
   .achievement-poster-box {
